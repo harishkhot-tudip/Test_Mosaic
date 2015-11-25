@@ -1,0 +1,32 @@
+<article class="content-container">
+    <div class="content-container-inner">
+        <div class="content-attachment">
+            <div class="content-attachment-img" style="background-image:url({{ imageSrc }});">
+                <img src="{{ imageSrc }}" />
+            </div>
+        </div>
+        <section class="content-body">
+            <header class="content-header">
+                <div class="content-header-inner">
+                    <div class="user-avatar">
+                        <img src="{{ useravatar }}" />
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name"><a target="{{ userLinkTarget }}" href="{{ userLinkUrl }}">{{ username }}</a></div>
+                        <div class="user-handle"><a target="{{ userLinkTarget }}" href="{{ userLinkUrl }}">{{ userhandle }}</a></div>
+                    </div>
+                    <div class="content-source" data-source-type="{{ source }}">
+                        <a target="_blank" href="{{ sourceHomeUrl }}"><span class="content-source-logo"></span></a>
+                    </div>
+                </div>
+            </header>
+            <div class="content-body-content">
+                {{{ body }}}
+            </div>
+            <footer class="footer">
+                <div class="content-share-controls"></div>
+                <div class="content-created-at">{{ formattedCreatedAt }}</div>
+            </footer>
+        </section>
+    </div>
+</article>

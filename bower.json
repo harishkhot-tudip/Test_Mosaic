@@ -1,0 +1,24 @@
+{
+  "name": "mosaic-component",
+  "version": "0.0.0",
+  "authors": [
+    "Xichuan Wang <mwang@livefyre.com>"
+  ],
+  "description": "A streamhub backed mosaic view",
+  "license": "MIT",
+  "dependencies": {
+    "app-base": "git@github.com:Livefyre/app-base#~0.0.2",
+    "streamhub-sdk": "git@github.com:Livefyre/streamhub-sdk.git#~2.16.1",
+    "require-css": "~0.1.8"
+  },
+  "devDependencies": {
+    "almond": "~0.3.1"
+  },
+  "resolutions": {
+    "base64": "~0.4.0",
+    "view": "1.4",
+    "auth": "~0.2.0",
+    "event-emitter": "0.1",
+    "livefyre-bootstrap": "v1.3.4"
+  }
+}

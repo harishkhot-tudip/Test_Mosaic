@@ -1,0 +1,280 @@
+@import "/lib/streamhub-sdk/src/css/fycons.less";
+
+@fycons-font-family: 'fycons-@{fycon-font-version}';
+@facebook-icon: "\e088";
+@twitter-icon: "\e096";
+@instagram-icon: "\e08d";
+@base-color: #51BF70;
+@user-font: Helvetica, Arial, sans-serif;
+@body-font: Georgia, Times, serif;
+
+.lf-mosaic-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    & * {
+        box-sizing: border-box;
+    }
+
+    .card-container {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        position: relative;
+        min-width: 200px;
+        min-height: 200px;
+        border-radius: 1px;
+        float: left;
+
+        & > div {
+            width: 100%;
+            padding-bottom: 100%;
+        }
+
+        &.outlier {
+            display: none;
+        }
+
+        @animation-time: 300ms;
+
+        .content-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            display: block;
+            -webkit-transition: opacity @animation-time linear;
+            -moz-transition: opacity @animation-time linear;
+            transition: opacity @animation-time linear;
+
+            &:hover .content-container-inner .content-body {
+                opacity: 1;
+            }
+
+            .content-container-inner {
+                margin: 3px;
+                position: relative;
+                border: 1px solid #e1e1e1;
+
+                .content-body {
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-repeat: no-repeat;
+                    z-index: 3;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    -webkit-transition: opacity 300ms linear;
+                    -moz-transition: opacity 300ms linear;
+                    transition: opacity 300ms linear;
+                    color: white;
+
+                    .content-header-inner {
+                        margin: 10px;
+                        overflow: hidden;
+
+                        .user-avatar,
+                        .user-info {
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+
+                        .user-avatar {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 8px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        .user-info {
+                            a {
+                                text-decoration: none;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            .user-name {
+                                margin-bottom: 3px;
+                                font-size: 11px;
+                                line-height: 12px;
+                                font-weight: bold;
+                                font-family: @user-font;
+                                a {
+                                    color: @base-color;
+                                }
+                            }
+
+                            .user-handle {
+                                font-size: 11px;
+                                line-height: 12px;
+                                font-family: @user-font;
+                            }
+                        }
+
+                        .content-source {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+
+                            &[data-source-type="facebook"] {
+                                .content-source-logo::before {
+                                    content: @facebook-icon;
+                                }
+                            }
+
+                            &[data-source-type="instagram"] {
+                                .content-source-logo::before {
+                                    content: @instagram-icon;
+                                }
+                            }
+
+                            &[data-source-type="twitter"] {
+                                .content-source-logo::before {
+                                    content: @twitter-icon;
+                                }
+                            }
+
+                            .content-source-logo {
+                                font-family: @fycons-font-family;
+                                font-style: normal;
+                                font-weight: 400;
+                                font-variant: normal;
+                                text-transform: none;
+                                speak: none;
+                                position: absolute;
+                                right: 10px;
+                                top: 10px;
+                            }
+                        }
+                    }
+
+                    .content-body-content {
+                        min-height: 90px;
+                        height: 45%;
+                        margin: 0 10px 10px;
+
+                        @line-height: 1.2;
+                        @max-lines: 6;
+
+                        // cross-browser line-clamp method
+                        // http://codepen.io/anon/pen/eNXjoK
+                        p {
+                            font-family: @body-font;
+                            text-align: left;
+                            font-size: 12px;
+                            display: block;
+                            display: -webkit-box;
+                            position: relative;
+                            line-height: @line-height;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            padding: 0;
+                            height: calc(1em * @line-height * @max-lines);
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: @max-lines;
+
+                            &::after {
+                                content: '...';
+                                text-align: right;
+                                bottom: 0;
+                                right: 0;
+                                width: 25%;
+                                display: block;
+                                position: absolute;
+                                height: calc(1em * @line-height);
+                                background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+                            }
+
+                            @supports (-webkit-line-clamp: 1) {
+                                &::after {
+                                    display: none !important;
+                                }
+                            }
+
+                            a {
+                                text-decoration: none;
+                                color: @base-color;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+
+                    .footer {
+                        padding: 0 18px 0;
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        z-index: 999;
+                        color: white;
+
+                        @import "/lib/streamhub-share/src/css/share.less";
+
+                        .content-share-controls {
+                            position: relative;
+                            padding: 0px 7px;
+                            line-height: 30px;
+                            float: left;
+
+                            .lf-menu-body > li {
+                                list-style: none;
+                                font-size: 14px;
+                                padding: 5px 0;
+                            }
+
+                            .content-action {
+                                width: 20px;
+                                height: 20px;
+                                font-family: @fycons-font-family;
+                                text-decoration: none;
+                                margin-right: 10px;
+
+                                &.content-action-reply::before {
+                                    content: "\e006";
+                                }
+                                &.content-action-retweet::before {
+                                    content: "\e008";
+                                }
+                                &.content-action-favorite::before {
+                                    content: "\e001";
+                                }
+                            }
+                        }
+
+                        .content-created-at {
+                            float: right;
+                            font-size: 12px;
+                            line-height: 30px;
+                            font-family: Helvetica, Arial, sans-serif;
+                        }
+                    }
+                }
+
+                .content-attachment {
+                    position: relative;
+
+                    .content-attachment-img {
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        width: 100%;
+                        padding-bottom: 100%;
+                        background-size: cover;
+
+                        img {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div id="mosaic"></div>
+    <script src="../dist/mosaic-component.min.js"></script>
+    <script>
+    var Mosaic = Livefyre['mosaic-component'];
+    window.mosaic = new Mosaic({
+        el: document.getElementById('mosaic'),
+        collection: {
+            network: 'client-solutions.fyre.co',
+            siteId: '376431',
+            articleId: 'custom-1437155554245'
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "mosaic-component",
+  "version": "0.0.3",
+  "description": "A streamhub backed mosaic view",
+  "dependencies": {
+    "hogan.js": "^3.0.2",
+    "hoganify": "^0.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "gulp": "^3.9.0",
+    "gulp-inline-base64": "^0.1.4",
+    "gulp-less": "^3.0.3",
+    "gulp-rework": "^1.0.3",
+    "http-server": "^0.8.0",
+    "mout": "^0.11.0",
+    "lfcdn": "git+ssh://git@github.com/Livefyre/lfcdn.git",
+    "rework-namespace-css": "^0.1.4",
+    "requirejs": "^2.1.19"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Livefyre/mosaic-component.git"
+  },
+  "author": "Xichuan Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Livefyre/mosaic-component/issues"
+  },
+  "homepage": "https://github.com/Livefyre/mosaic-component"
+}
